@@ -10,4 +10,5 @@
   color: white;
   background-color: black;
   cursor: pointer;
+  user-select: none;
 }

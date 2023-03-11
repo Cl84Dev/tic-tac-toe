@@ -1,10 +1,10 @@
 import React from "react";
 import "./Cell.css";
 
-function Cell({ plays, setPlays, xOrY, setXOrY, index, running }) {
-  const play = (index) => {
+function Cell({ plays, setPlays, xOrO, setXOrO, index, running, play }) {
+  const playGame = (index) => {
     const newPlays = [...plays];
-    if (plays[index]) {
+    if (play) {
       return;
     }
 
@@ -12,23 +12,23 @@ function Cell({ plays, setPlays, xOrY, setXOrY, index, running }) {
       return;
     }
 
-    if (xOrY) {
+    if (xOrO) {
       newPlays[index] = "X";
     } else {
       newPlays[index] = "O";
     }
 
     setPlays(newPlays);
-    setXOrY(!xOrY);
+    setXOrO(!xOrO);
   };
 
   return (
     <div
       className="cell"
-      onClick={() => play(index)}
-      style={plays[index] === "X" ? { color: "blue" } : { color: "red" }}
+      onClick={() => playGame(index)}
+      style={play === "X" ? { color: "blue" } : { color: "red" }}
     >
-      {plays[index]}
+      {play}
     </div>
   );
 }
